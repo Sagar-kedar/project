@@ -8,6 +8,7 @@ pipelineJob('MyPipelineJob') {
                         docker {
                             image 'bitnami/kubectl:latest'
                         }
+                    }    
                     stages {
                         stage('Checkout Code') {
                             steps {
