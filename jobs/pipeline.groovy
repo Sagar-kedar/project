@@ -6,7 +6,7 @@ pipelineJob('MyPipelineJob') {
                 pipeline {
                     agent any
                     environment {
-                        KUBECONFIG = "/Users/sagarkedar/.kube/config"
+                        KUBECONFIG = "/root/Users/sagarkedar/.kube/config"
                     }
                     stages {
                         stage('Checkout Code') {
