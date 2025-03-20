@@ -6,13 +6,22 @@ pipelineJob('MyPipelineJob') {
                 pipeline {
                     agent any
                     environment {
-                        KUBECONFIG = "/root/Users/sagarkedar/.kube/config"
+                        KUBECONFIG = credentials('2786b50b-cf80-41e8-96dc-78ea400da120')
+                        PATH = "/usr/local/bin/kubectl:$PATH"
                     }
                     stages {
                         stage('Checkout Code') {
                             steps {
                                 script {
                                     git branch: 'main', url: 'https://github.com/Sagar-kedar/project.git'
+                                }
+                            }
+                        }
+
+                        stage('Verify kubectl') {
+                            steps {
+                                script {
+                                    sh 'kubectl version --client'
                                 }
                             }
                         }
