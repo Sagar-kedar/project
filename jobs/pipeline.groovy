@@ -6,8 +6,7 @@ pipelineJob('MyPipelineJob') {
                 pipeline {
                     agent any
                     environment {
-                        KUBECONFIG = credentials('2786b50b-cf80-41e8-96dc-78ea400da120')
-                        PATH = "/usr/local/bin/kubectl:$PATH"
+                        KUBECONFIG = credentials('kubeconfig')
                     }
                     stages {
                         stage('Checkout Code') {
