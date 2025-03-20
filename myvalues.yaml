@@ -557,7 +557,7 @@ controller:
                   }
                   steps {
                       dsl {
-                          external('project/jobs/pipeline.groovy')
+                          external('jobs/pipeline.groovy')
                           removeAction('DELETE')
                       }
                       triggers {
