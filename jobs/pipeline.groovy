@@ -4,10 +4,10 @@ pipelineJob('MyPipelineJob') {
         cps {
             script("""
                 pipeline {
-                    agent any
-                    environment {
-                        KUBECONFIG = credentials('kubeconfig')
-                    }
+                    agent {
+                        docker {
+                            image 'bitnami/kubectl:latest'
+                        }
                     stages {
                         stage('Checkout Code') {
                             steps {
