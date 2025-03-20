@@ -20,6 +20,7 @@ pipelineJob('MyPipelineJob') {
                         stage('Apply Kubernetes Manifests') {
                             steps {
                                script {
+                                   sh 'brew install kubectl'
                                    sh 'kubectl apply -f k8s-deployment-svc.yaml'
                                }
                             }
