@@ -12,7 +12,7 @@ pipelineJob('MyPipelineJob') {
                         stage('Checkout Code') {
                             steps {
                                 script {
-                                    git 'https://github.com/Sagar-kedar/project.git'
+                                    git branch: 'main', url: 'https://github.com/Sagar-kedar/project.git'
                                 }
                             }
                         }
