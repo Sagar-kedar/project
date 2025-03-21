@@ -10,6 +10,12 @@ RUN apt-get update && apt-get install -y curl && \
     kubectl version --client
 
 # Verify permissions and ownership
-RUN chown jenkins:jenkins /usr/local/bin/kubectl /usr/bin/kubectl
+# RUN chown jenkins:jenkins /usr/local/bin/kubectl /usr/bin/kubectl
 
 USER jenkins
+
+# Ensure kubectl is available in PATH
+ENV PATH="/usr/local/bin:${PATH}"
+RUN echo 'export PATH="/usr/local/bin:$PATH"' >> /home/jenkins/.bashrc
+
+ENTRYPOINT [ "jenkins-agent" ]

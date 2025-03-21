@@ -6,7 +6,7 @@ pipelineJob('MyPipelineJob') {
                 pipeline {
                     agent {
                         kubernetes {
-                            inheritFrom 'jenkins-agent'  // Must match the Pod Template label
+                            label 'jenkins-agent'  // Must match the Pod Template label
                         }
                     }
                     environment {
