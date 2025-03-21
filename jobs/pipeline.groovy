@@ -6,7 +6,7 @@ pipelineJob('MyPipelineJob') {
                 pipeline {
                     agent any 
                     environment {
-                        KUBECONFIG = "/home/jenkins/.kube/config"
+                        KUBECONFIG = credentials('kubeconfig')
                     }        
                     stages {
                         stage('Checkout Code') {
