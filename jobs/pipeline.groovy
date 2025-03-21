@@ -4,7 +4,11 @@ pipelineJob('MyPipelineJob') {
         cps {
             script("""
                 pipeline {
-                    agent any 
+                    agent {
+                        kubernetes {
+                            label 'jenkins-agent'  // Must match the Pod Template label
+        
+                    }
                     environment {
                         KUBECONFIG = credentials('kubeconfig')
                     }        
